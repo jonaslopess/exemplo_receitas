@@ -18,6 +18,7 @@
                     include "conexao.php";
 
                     $sql = "select 
+                                Receita.codigo,
                                 Receita.titulo, 
                                 Receita.nota, 
                                 Receita.descricao, 
@@ -31,14 +32,14 @@
                             on Comentario.codigo_receita = Receita.codigo
                             group by Comentario.codigo_receita;";
 
-                    $resultados = $conector->query($sql);
-                    $num_rows = $resultados->num_rows;
-                    if($num_rows <= 0){
+                    $resultados_receitas = $conector->query($sql);
+                    $num_receitas = $resultados_receitas->num_rows;
+                    if($num_receitas <= 0){
                         echo "Nenhum registro encontrado!";
                     } else {
-                        for($i=0;$i<$num_rows;$i++){
-                            $resultados->data_seek($i);
-                            $receita = $resultados->fetch_assoc();
+                        for($j=0;$j<$num_receitas;$j++){
+                            $resultados_receitas->data_seek($j);
+                            $receita = $resultados_receitas->fetch_assoc();
 
                 ?> 
                 <div class="col">
@@ -88,7 +89,7 @@
                                         <div class="col-6">
                                             <?php echo '<img src="img/usuarios/'.$receita['foto_autor'].'" class="rounded-circle" style="height:40px">'; ?>                                
                                              
-                                    </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -105,7 +106,9 @@
                                             Comentario.avaliacoes_negativas,
                                             Comentario.codigo 
                                         from Comentario, Autor
-                                        where Comentario.codigo_receita = '1' and Autor.email = Comentario.email_autor;";
+                                        where Comentario.codigo_receita = '"
+                                        .$receita['codigo'].
+                                        "' and Autor.email = Comentario.email_autor;";
 
                                 $resultados = $conector->query($sql);
                                 $num_rows = $resultados->num_rows;
