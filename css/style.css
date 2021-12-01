@@ -1,0 +1,16 @@
+.star, .star1, .star2, .star3, .star4{
+    background-image: url('../img/icon/star-fill.svg');
+    background-repeat:no-repeat;
+    background-position: center center;
+}
+
+     
+.star:hover+.star, 
+.star:hover+.star+.star, 
+.star:hover+.star+.star+.star, 
+.star:hover+.star+.star+.star+.star
+{
+    background-image: url('../img/icon/star.svg');
+    background-repeat:no-repeat;
+    background-position: center center;
+}
