@@ -50,21 +50,16 @@
                                     <h3><?php echo $receita['titulo']?></h3>
                                 </div>
                                 <div class="col-5">
-                                    <a class="btn star star1" href="#">
-                                        
-                                    </a>
-                                    <a class="btn star star2" href="#">
-                                        
-                                    </a>
-                                    <a class="btn star star3" href="#">
-                                        
-                                    </a>
-                                    <a class="btn star star4" href="#">
-                                        
-                                    </a>
-                                    <a class="btn star star5" href="#">
-                                        
-                                    </a>
+                                    <?php echo '<a class="btn star star1" href="atualiza-receita?codigo='.$receita['codigo'].'&nota=1"></a>'; ?>
+                                    
+                                    <?php echo '<a class="btn star star2" href="atualiza-receita?codigo='.$receita['codigo'].'&nota=2"></a>'; ?>
+
+                                    <?php echo '<a class="btn star star3" href="atualiza-receita?codigo='.$receita['codigo'].'&nota=3"></a>'; ?>
+                                    
+                                    <?php echo '<a class="btn star star4" href="atualiza-receita?codigo='.$receita['codigo'].'&nota=4"></a>'; ?>
+
+                                    <?php echo '<a class="btn star star5" href="atualiza-receita?codigo='.$receita['codigo'].'&nota=5"></a>'; ?>
+
                                     <?php echo $receita['nota']?>
                                 </div>
                             </div>
